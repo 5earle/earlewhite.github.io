@@ -31,3 +31,38 @@ function toggleMenu() {
     showMenu = false;
   }
 }
+
+$(function () {
+    /* owl-carousel*/
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        items: 4,
+        responsive:{
+            0:{  // if screen size is less than 480 show one item..
+                items:1
+            },
+            480:{
+                items:2
+            },
+            768:{
+                items:3
+            },
+            938:{
+                items: 6
+            }
+        }
+    });
+
+    /* easy pie*/
+    $('.chart').easyPieChart({
+        easing: 'easeInOut',
+        barColor: '#fff',
+        trackColor: false,
+        scaleColor: false,
+        lineWidth: 4,
+        size: 122,
+        onStep: function (from,to,percent) {    /*make number increase*/
+            $(this.el).find('.percent').text(Math.round(percent));
+        }
+    });
+});
